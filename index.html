@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Bus
+    </title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='50%' x='50%' text-anchor='middle' dominant-baseline='central' font-size='48'>🚌</text></svg>">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Botón menú hamburguesa y menú lateral -->
+    <div class="menu-hamburguesa-container">
+        <button id="menu-hamburguesa" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="menu-lateral" class="menu-lateral oculto">
+            <ul>
+                <li id="inicio-link"><a href="indexinicio.html">Inicio</a></li>
+                <li id="cooperativa-link"><a href="cooperativa.html">Cooperativa</a></li>
+                <li id="contacto-link"><a href="contacto.html">Contacto</a></li>
+                <li id="recorridos-link"><a href="index.html">Recorridos</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <header>
+        <h1>Servicio Interurbano General Roca</h1>
+        <img src="https://cet1groca.wordpress.com/wp-content/uploads/2022/11/wp-1668511993253.png" alt="CET 1" width="40" height="40">
+        <button id="theme-toggle">🌑 Modo Oscuro</button>
+    </header>
+
+    <nav>
+        <ul id="menu-mapas">
+            <li class="dropdown">
+                <a href="#" class="menu-item">Paso Cordoba/Chacramonte</a>
+                <ul class="dropdown-content">
+                    <li><a href="#" class="menu-sub-item" data-map-id="pasoCordoba7_00">7:00</a></li>
+                    <li><a href="#" class="menu-sub-item" data-map-id="pasoCordoba10_30">10:30</a></li>
+                    <li><a href="#" class="menu-sub-item" data-map-id="pasoCordoba14_40">11:50</a></li>
+                    <li><a href="#" class="menu-sub-item" data-map-id="pasoCordoba13_10">13:10</a></li>
+                    <li><a href="#" class="menu-sub-item" data-map-id="pasoCordoba14_40">14:40a</a></li>
+                    <li><a href="#" class="menu-sub-item" data-map-id="pasoCordoba14_40B">14:40b</a></li>
+                    <li><a href="#" class="menu-sub-item" data-map-id="pasoCordoba14_40">16:35</a></li>
+                    <li><a href="#" class="menu-sub-item" data-map-id="pasoCordoba14_40B">17:45</a></li>
+                    <li><a href="#" class="menu-sub-item" data-map-id="pasoCordoba14_40B">19:00</a></li>
+                    <li><a href="#" class="menu-sub-item wide-button" data-map-id="pasoCordoba7_00">21:30 - 22:30 - 23:50</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="menu-item" data-map-id="stefenelli">Stefenelli</a></li>
+            <li><a href="#" class="menu-item" data-map-id="aeroclub">Aeroclub/Quinta 25</a></li>
+            <li><a href="#" class="menu-item" data-map-id="jjGomez">JJ Gomez/Alta Barda</a></li>
+            <li><a href="#" class="menu-item" data-map-id="malvinas">Ippv/Malvinas</a></li>
+            <li><a href="#" class="menu-item" data-map-id="mapabarrionuevo">Barrio Nuevo</a></li>
+            <li><a href="#" class="menu-item" data-map-id="mosconi827">Mosconi/827</a></li>
+            <li class="dropdown">
+                <a href="#" class="menu-item">Domingo/Feriado</a>
+                <ul class="dropdown-content domingo-feriado-menu">
+                    <li><a href="#" class="menu-sub-item" data-map-id="barrionuevodomingo">Barrio Nuevo/Aeroclub</a></li>
+                    <li><a href="#" class="menu-sub-item" data-map-id="jjgomezdomingo">JJ Gomez/Alta Barda</a></li>
+                    <li><a href="#" class="menu-sub-item" data-map-id="jjgomezdomingo">Mosconi/827</a></li>
+                    <li><a href="#" class="menu-sub-item" data-map-id="jjgomezdomingo">Paso Cordoba</a></li>
+                    <li><a href="#" class="menu-sub-item" data-map-id="ippvDomingo">IPPV/Malvinas</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+    
+    <main id="map-container">
+        <div id="map"></div>
+    </main>
+
+    <footer style="background:#333; color:#fff; text-align:center; padding:5px 0; margin-top:20px;">
+        <marquee behavior="scroll" direction="left" scrollamount="6">
+            © 2025 Servicio Interurbano General Roca - Desarrollado por Emir Cide - Axel Huaiquilao - Damian Cejas
+        </marquee>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js"></script>
+    <script>
+        const bounds = L.latLngBounds(selectedMap.points);
+        map.setView(bounds.getCenter(), 14); // Centra y aplica zoom fijo
+    </script>
+</body>
+</html>
